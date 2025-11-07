@@ -34,6 +34,6 @@ jobs:
           cp -r dist/* release-packages/
 
       - name: Fazer Upload dos Artefatos
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4 
         with:
           name: release-packages
