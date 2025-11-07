@@ -1,0 +1,39 @@
+name : Criando Pacotes de Release
+on:
+  workflow_dispatch:
+    inputs:
+      release_version:
+        description: 'Versão de Release (ex: v1.0.0)'
+        required: true
+        default: 'v1.0.0'
+      release_name: 
+        description: 'Nome da Release (ex: Versão 1.0.0)'
+        required: true
+        default: 'Versão 1.0.0'
+jobs:
+  create_release_packages:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do Repositório
+        uses: actions/checkout@v3
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Instalar Dependências
+        run: npm install
+
+      - name: Construir Pacotes de Release
+        run: npm run build
+
+      - name: Criar Artefatos de Release
+        run: |
+          mkdir -p release-packages
+          cp -r dist/* release-packages/
+
+      - name: Fazer Upload dos Artefatos
+        uses: actions/upload-artifact@v3
+        with:
+          name: release-packages
