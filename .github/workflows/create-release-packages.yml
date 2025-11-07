@@ -26,7 +26,7 @@ jobs:
 
       - name: Criar Pacote Zip
         id: zip_repo 
-        uses: thedoctor0/zip-release@.0.7.6
+        uses: thedoctor0/zip-release@0.7.6
         with:
           type: 'zip'
           file_name: 'repo-package.zip'
