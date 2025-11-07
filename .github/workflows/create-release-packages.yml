@@ -3,10 +3,10 @@ on:
   workflow_dispatch:
     inputs:
      tag_name:
-         description: 'Nome da Tag para a Release'
+         description: 'Nome da Tag para a Release(ex: v1.0.0)'
          required: true
      release_name:
-         description: 'Nome da Release'
+         description: 'Nome da Release (ex: Versão 1.0.0)'
          required: true
      prerelease:
          description: 'Marcar como Pre-release?'
