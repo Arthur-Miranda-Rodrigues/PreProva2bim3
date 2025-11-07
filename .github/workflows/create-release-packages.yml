@@ -17,6 +17,9 @@ on:
 jobs:
   create_release_packages:
     runs-on: ubuntu-latest
+   
+    permissions:
+       contents: write
     steps:
       - name: Checkout do Repositório
         uses: actions/checkout@v3
@@ -27,6 +30,7 @@ jobs:
         with:
           type: 'zip'
           file_name: 'repo-package.zip'
+          exclusions: '*.git* /*node_modules/* .editorconfig'
 
       - name: Criar Release
         uses: ncipollo/release-action@v1.14.0
