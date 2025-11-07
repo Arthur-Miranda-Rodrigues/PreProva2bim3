@@ -16,18 +16,7 @@ jobs:
     steps:
       - name: Checkout do Repositório
         uses: actions/checkout@v3
-
-      - name: Configurar Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16'
-
-      - name: Instalar Dependências
-        run: npm install
-
-      - name: Construir Pacotes de Release
-        run: npm run build
-
+        
       - name: Criar Artefatos de Release
         run: |
           mkdir -p release-packages
